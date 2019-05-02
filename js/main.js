@@ -30,13 +30,11 @@ document.getElementById('reset-button').addEventListener('click', init);
 
 function getWinner() {
     let winner = null;
-      winningCombos.forEach((combo, index) => {
-        if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]) {
-            winner = board[combo[0]];
-        } 
-      });
-      return winner ? winner : board.includes('') ? null : 'T';
-  };
+    winningCombos.forEach(function(combo, index) {
+        if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]) winner = board[combo[0]];
+        });
+        return winner ? winner : board.includes('') ? null : 'T';
+};
 
 function handleTurn() {
     let idx = squares.findIndex(function(square) {
